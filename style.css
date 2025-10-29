@@ -1,0 +1,473 @@
+/* --- 1. Global Styles & Variables --- */
+:root {
+    --primary-color: #333333;      
+    --accent-color: #1a73e8;       
+    --dark-bg: #1e1e1e;            
+    --light-bg: #f5f5f5;           
+    --text-dark: #2c2c2c;
+    --text-light: #ffffff;
+    --secondary-accent: #FF5722;   /* Used for Projects and Footer Email */
+    --font-family: 'Poppins', sans-serif; 
+
+    /* Academic Card Colors */
+    --btech-color: #4CAF50; 
+    --hsc-color: #FF9800;   
+    --ssc-color: #2196F3;   
+
+    /* Project Card Color */
+    --project-color: var(--secondary-accent); 
+    
+    /* Certificate Color */
+    --cert-color: #00bfff; 
+
+    /* Skill Card Colors */
+    --skill-tech-color: #4CAF50; 
+    --skill-lang-color: #2196F3; 
+
+    /* Passions Card Colors (NEW) */
+    --passion-bg-color: #ffffff;
+    --ai-ml-color: #673AB7; /* Deep Purple for AI/ML */
+    --sport-color: #FFC107; /* Amber for Sports */
+    --bike-color: #795548; /* Brown for Bikes */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    overflow-x: hidden; 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Utility for layout */
+.row { display: flex; flex-wrap: wrap; margin-left: -15px; margin-right: -15px; }
+.col-md-4, .col-md-6, .col-lg-4, .col-lg-3, .col { padding-left: 15px; padding-right: 15px; margin-bottom: 30px; }
+.text-center { text-align: center; }
+.mb-5 { margin-bottom: 3rem; }
+
+
+/* --- 2. Navbar & Hero Styles (Unchanged) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: var(--light-bg);
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+}
+/* Styling for the Logo Image */
+.navbar .logo {
+    /* Ensure the logo container is sized correctly for the image */
+    height: 40px; 
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo .header-logo-img {
+    /* Set the maximum height for your logo */
+    height: 100%; 
+    width: auto;
+    /* Optional: Small box shadow for emphasis */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+    border-radius: 4px;
+}
+.hero-section {
+    display: flex;
+    min-height: calc(100vh - 68px); 
+    position: relative;
+}
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
+    z-index: 2; 
+    color: var(--text-dark); 
+}
+.hero-content .role {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+.hero-image-container {
+    flex: 1;
+    position: relative;
+    background-color: var(--light-bg);
+}
+.hero-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 45%; 
+    background: var(--dark-bg);
+    transform: skewX(-12deg); 
+    transform-origin: top left;
+    z-index: 1;
+}
+.hero-image-container img {
+    position: absolute;
+    top: 50%;
+    left: 40%; 
+    transform: translate(-50%, -50%);
+    width: 300px; 
+    height: 300px;
+    object-fit: cover;
+    z-index: 3;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px; 
+    margin-bottom: 30px; 
+}
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary-color); 
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+.social-links a i { font-weight: 900; } 
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- 3. Academic Journey Section Styling (Unchanged) --- */
+.academics-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+.academics-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+.academic-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 5px solid transparent; 
+    height: 100%;
+}
+.academic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+.academic-card h4 { font-weight: 600; margin-bottom: 5px; }
+.academic-card .institution { font-size: 0.95rem; color: #555; margin-bottom: 15px; }
+.academic-card .details { font-weight: 500; margin-top: 10px; }
+.card-btech { border-left-color: var(--btech-color); }
+.card-btech h4 { color: var(--btech-color); }
+.card-hsc { border-left-color: var(--hsc-color); }
+.card-hsc h4 { color: var(--hsc-color); }
+.card-ssc { border-left-color: var(--ssc-color); }
+.card-ssc h4 { color: var(--ssc-color); }
+
+
+/* --- 4. Projects Section Styling (Unchanged) --- */
+.projects-section {
+    padding: 80px 0;
+    background-color: #f0f0f0; 
+}
+.projects-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.project-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-bottom: 3px solid var(--project-color); 
+    height: 100%;
+}
+.project-card.shadow-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+.project-icon {
+    color: var(--project-color);
+}
+.project-card h4 {
+    font-weight: 600;
+    margin-top: 10px;
+    color: var(--primary-color);
+}
+.project-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+.project-card .btn-link {
+    color: var(--project-color);
+    font-weight: 600;
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+}
+.project-card .btn-link:hover {
+    border-bottom: 1px solid var(--project-color);
+}
+
+
+/* --- 5. Certificates Section Styling (Unchanged) --- */
+.certificates-section {
+    background-color: var(--dark-bg);
+    padding: 80px 0;
+}
+.certificates-section h2 {
+    color: var(--text-light);
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+}
+
+.certificate-card {
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+}
+
+.certificate-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 191, 255, 0.3);
+}
+
+.certificate-img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    display: block;
+    border-bottom: 3px solid var(--cert-color);
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.certificate-card:hover .certificate-img {
+    opacity: 1;
+}
+
+.cert-info {
+    padding: 20px;
+    color: var(--text-light);
+}
+
+.cert-info h4 {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--cert-color);
+}
+
+.cert-info p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.cert-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--cert-color);
+    border-bottom: 1px solid transparent;
+}
+
+.cert-link:hover {
+    border-bottom: 1px solid var(--cert-color);
+}
+
+
+/* --- 6. Skills Section Styling (Unchanged) --- */
+.skills-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.skill-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    border-top: 4px solid; 
+}
+
+.programming-card { border-top-color: var(--skill-tech-color); }
+.language-card { border-top-color: var(--skill-lang-color); }
+
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon-main {
+    margin-bottom: 15px;
+}
+
+.programming-card .skill-icon-main {
+    color: var(--skill-tech-color);
+}
+
+.language-card .skill-icon-main {
+    color: var(--skill-lang-color);
+}
+
+.skill-card h4 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-list li {
+    font-size: 1.05rem;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    color: #555;
+}
+
+.skill-list li:last-child {
+    border-bottom: none;
+}
+
+.programming-card .skill-list i {
+    color: var(--skill-tech-color);
+    margin-right: 10px;
+}
+
+.language-card .skill-list i {
+    color: var(--skill-lang-color);
+    margin-right: 10px;
+}
+
+
+/* --- 7. Passions Section Styling (NEW) --- */
+.passions-section {
+    padding: 80px 0;
+    background-color: #f0f0f0; 
+}
+
+.passions-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.passion-card {
+    background-color: var(--passion-bg-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    border-bottom: 4px solid #ccc; /* Default border */
+}
+
+.passion-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.passion-icon {
+    margin-bottom: 15px;
+}
+
+/* Specific icon colors */
+.passion-card:nth-child(1) { border-bottom-color: var(--ai-ml-color); }
+.passion-card:nth-child(2) { border-bottom-color: var(--sport-color); }
+.passion-card:nth-child(3) { border-bottom-color: var(--bike-color); }
+.passion-card:nth-child(4) { border-bottom-color: var(--sport-color); }
+
+.passion-card:nth-child(1) .passion-icon { color: var(--ai-ml-color); }
+.passion-card:nth-child(2) .passion-icon { color: var(--sport-color); }
+.passion-card:nth-child(3) .passion-icon { color: var(--bike-color); }
+.passion-card:nth-child(4) .passion-icon { color: var(--sport-color); }
+
+.passion-card h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.passion-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+/* --- 8. Basic Responsiveness (Unchanged) --- */
+@media (max-width: 992px) {
+    /* Mobile Hero/Navbar/Social links stacking styles */
+    .navbar { padding: 15px 30px; }
+    .hero-section { flex-direction: column; text-align: center; min-height: auto; }
+    .hero-content { padding-left: 20px; align-items: center; }
+    .hero-image-container::before { left: 0; transform: skewX(0); }
+    .hero-image-container img { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; }
+
+    /* General card stacking for mobile */
+    .row { margin-left: -10px; margin-right: -10px; }
+    .col-md-4, .col-md-6, .col-lg-3 { padding-left: 10px; padding-right: 10px; margin-bottom: 20px; }
+    
+    /* Section padding */
+    .academics-section, .projects-section, .certificates-section, .skills-section, .passions-section { padding: 50px 0; }
+}
